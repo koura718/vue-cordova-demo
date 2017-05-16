@@ -38,11 +38,27 @@
 
 <script>
 import Vue from 'vue'
+import log from 'loglevel'
 
 export default {
   methods: {
+    init () {
+      log.debug('// init')
+    },
     pluginEnabled: function (pluginName) {
       return this.cordova.plugins.indexOf(pluginName) !== -1
+    }
+  },
+  created: function () {
+    log.setLevel(0)
+    log.debug('// created')
+  },
+  mounted: function () {
+    log.debug('// mounted')
+    this.init()
+  },
+  computed: {
+    showSlide: function () {
     }
   },
   data: function () {
@@ -52,12 +68,15 @@ export default {
         'cordova-plugin-camera': function () {
           if (!Vue.cordova.camera) {
             window.alert('Vue.cordova.camera not found !')
+            log.debug('Vue.cordova.camera not found !')
             return
           }
           Vue.cordova.camera.getPicture((imageURI) => {
             window.alert('Photo URI : ' + imageURI)
+            log.debug('Photo URI : ' + imageURI)
           }, (message) => {
             window.alert('FAILED : ' + message)
+            log.debug('FAILED : ' + message)
           }, {
             quality: 50,
             destinationType: Vue.cordova.camera.DestinationType.FILE_URI
@@ -66,19 +85,24 @@ export default {
         'cordova-plugin-device': function () {
           if (!Vue.cordova.device) {
             window.alert('FAILED : device information not found')
+            log.debug('FAILED : device information not found')
           } else {
             window.alert('Device : ' + Vue.cordova.device.manufacturer + ' ' + Vue.cordova.device.platform + ' ' + Vue.cordova.device.version)
+            log.debug('Device : ' + Vue.cordova.device.manufacturer + ' ' + Vue.cordova.device.platform + ' ' + Vue.cordova.device.version)
           }
         },
         'cordova-plugin-geolocation': function () {
           if (!Vue.cordova.geolocation) {
             window.alert('Vue.cordova.geolocation not found !')
+            log.debug('Vue.cordova.geolocation not found !')
             return
           }
           Vue.cordova.geolocation.getCurrentPosition((position) => {
             window.alert('Current position : ' + position.coords.latitude + ',' + position.coords.longitude)
+            log.debug('Current position : ' + position.coords.latitude + ',' + position.coords.longitude)
           }, (error) => {
             window.alert('FAILED Error #' + error.code + ' ' + error.message)
+            log.debug('FAILED Error #' + error.code + ' ' + error.message)
           }, {
             timeout: 1000,
             enableHighAccuracy: true
@@ -87,13 +111,16 @@ export default {
         'cordova-plugin-contacts': function () {
           if (!Vue.cordova.contacts) {
             window.alert('Vue.cordova.contacts not found !')
+            log.debug('Vue.cordova.contacts not found !')
             return
           }
           const ContactFindOptions = ContactFindOptions || function () {}
           Vue.cordova.contacts.find(['displayName'], (contacts) => {
             window.alert('Contacts found : ' + contacts.length)
+            log.debug('Contacts found : ' + contacts.length)
           }, (error) => {
             window.alert('FAILED : ' + error.code)
+            log.debug('FAILED : ' + error.code)
           })
         }
       }
