@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "989608312358",
+    "firebase_url": "https://kourabiz.firebaseio.com",
+    "project_id": "kourabiz",
+    "storage_bucket": "kourabiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989608312358:android:9fb57ca0c3f34900",
+        "android_client_info": {
+          "package_name": "biz.koura.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989608312358-jpchaui35n0kj4ok6vrfuv9gek1bg01a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "biz.koura.android",
+            "certificate_hash": "453c7e71b3850deeacdb35a5c06f48e573ac4228"
+          }
+        },
+        {
+          "client_id": "989608312358-l9jog0d75tr5oeiefpkjdq22q0crg6v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvvJc56t9nfenvdVZ5Kqm4Fy0DPfw_FlE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989608312358-l9jog0d75tr5oeiefpkjdq22q0crg6v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
